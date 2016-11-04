@@ -1,13 +1,37 @@
 package MODEL;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="usuarios")
 public class Usuario {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")
+	private int id;
+	
+	@Column(name="primeiro_nome")
 	private String primeiroNome;
+	
+	@Column(name="ultimo_nome")
 	private String ultimoNome;
+	
+	@Column(name="idade")
 	private int idade;
-	private Date nascimento;
+	
+	@Column(name="nascimento")
+	private String nascimento;
+	
+	@Column(name="cpf")
 	private String cpf;
 	
-	public Usuario(String pn, String un, int idade, Date nascimento, String cpf) {
+	public Usuario(String pn, String un, int idade, String nascimento, String cpf) {
 		this.primeiroNome = pn;
 		this.ultimoNome = un;
 		this.idade = idade;
@@ -16,7 +40,7 @@ public class Usuario {
 	}
 	
 	public Usuario() {
-		this("unknown", "unknown", 0, new Date("0000-00-00"), "unknown");
+		this("unknown", "unknown", 0, "0000-00-00", "unknown");
 	}
 
 	public String getPrimeiroNome() {
@@ -43,11 +67,11 @@ public class Usuario {
 		this.idade = idade;
 	}
 
-	public Date getNascimento() {
+	public String getNascimento() {
 		return nascimento;
 	}
 
-	public void setNascimento(Date nascimento) {
+	public void setNascimento(String nascimento) {
 		this.nascimento = nascimento;
 	}
 

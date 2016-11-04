@@ -59,7 +59,7 @@ public class UsuarioDAOImpl implements IFUsuarioDAO {
 					usuario.setPrimeiroNome(resultSet.getString(2));
 					usuario.setUltimoNome(resultSet.getString(3));
 					usuario.setIdade(resultSet.getInt(4));
-					usuario.setNascimento(new Date(resultSet.getString(5)));
+					usuario.setNascimento(resultSet.getString(5));
 					usuario.setCpf(resultSet.getString(6));
 					usuarios.add(usuario);
 				}
